@@ -11,9 +11,10 @@ var server = net.createServer(function (socket) {
   socket.on('data',function(data){
        console.log(data);
   });
-  socket.write("Echo awesome server\r\n");
-  socket.pipe(socket);
-  console.log(connections);
+  socket.write("Welcome to the chat room!\r\n");
+	for(connId in connections){
+		socket.pipe(connections[connId]);
+	}
 });
 
 
