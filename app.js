@@ -6,11 +6,15 @@ Most awesome branch ever
 var net = require('net');
 var connections = [];
 var commands = ["say","setname"];
+var models = require("./models");
+console.log(models);
 var _id = 0;
 var server = net.createServer(function (socket) {
 
-  
-    connections[_id] = socket;
+    var Player = new models.Player(socket);
+    connections[_id] = Player;
+    console.log(connections);
+    console.log(connections[_id].getConnection());
     socket._connid = _id;
     _id ++;
     socket.setEncoding("UTF-8");
