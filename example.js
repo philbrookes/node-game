@@ -7,9 +7,16 @@ var net = require('net');
 var connections = [];
 var _id = 0;
 var server = net.createServer(function (socket) {
-    connections[_id] = socket;
-    socket._connid = _id;
-    socket.setEncoding("UTF-8");
+
+  
+connections[_id] = socket;
+  socket._connid = _id;
+  _id ++;
+  socket.setEncoding("UTF-8");
+  socket.on('data',function(data){
+       console.log(data);
+  });
+
 
     socket.on('end',function(){
         for(var i = 0; i < connections.length; i++){
@@ -30,6 +37,6 @@ var server = net.createServer(function (socket) {
 		}
     });
 });
-
+  
 
 server.listen(13378, "127.0.0.1");
