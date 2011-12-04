@@ -32,17 +32,19 @@ var server = net.createServer(function (socket) {
 
     socket.on('data',function(data){
         console.log(data);
+        var command = "";
         for(connId in connections){
             data = data.replace("\r\n", "");
             for(i = 0; i < commands.length; i++){
                 console.log("checking for "+commands[i]);
                 if(data.indexOf(commands[i], 0)!= -1){
                     console.log(commands[i]);
+                    command = commands[i];
                     console.log("command sent was "+ commands[i]);
                 //build command obj
                 }
             }
-            connections[connId].write(data + " started with: "+data.charAt(0));
+            connections[connId].write(data + " comand sent was "+ command);
         }
     });
 });
