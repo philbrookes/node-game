@@ -39,7 +39,7 @@ var server = net.createServer(function (socket) {
                 if(data.indexOf(commands[i], 0)!= -1){
                     console.log(commands[i]);
                     console.log("command sent was "+ commands[i]);
-                    //build command obj
+                //build command obj
                 }
             }
             connections[connId].write(data + " started with: "+data.charAt(0));
