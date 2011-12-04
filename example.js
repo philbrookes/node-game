@@ -10,6 +10,7 @@ var server = net.createServer(function (socket) {
   
 connections[_id] = socket;
   socket._connid = _id;
+  _id ++;
   socket.setEncoding("UTF-8");
   socket.on('data',function(data){
        console.log(data);
