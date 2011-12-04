@@ -9,13 +9,13 @@ var _id = 0;
 var server = net.createServer(function (socket) {
 
   
-connections[_id] = socket;
-  socket._connid = _id;
-  _id ++;
-  socket.setEncoding("UTF-8");
-  socket.on('data',function(data){
-       console.log(data);
-  });
+    connections[_id] = socket;
+    socket._connid = _id;
+    _id ++;
+    socket.setEncoding("UTF-8");
+    socket.on('data',function(data){
+        console.log(data);
+    });
 
 
     socket.on('end',function(){
@@ -27,14 +27,14 @@ connections[_id] = socket;
             } 
         } 
         console.log(connections);
-  });
+    });
 
     socket.on('data',function(data){
-		console.log(data);
-		for(connId in connections){
+        console.log(data);
+        for(connId in connections){
             data = data.replace("\r\n", "");
             connections[connId].write(data + " started with: "+data.charAt(0));
-		}
+        }
     });
 });
   
