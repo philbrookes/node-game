@@ -8,7 +8,7 @@ var connections = [];
 var _id = 0;
 var server = net.createServer(function (socket) {
   
-  connections[_id] = socket;
+connections[_id] = socket;
   socket._connid = _id;
   socket.setEncoding("UTF-8");
   socket.on('data',function(data){
@@ -32,6 +32,6 @@ var server = net.createServer(function (socket) {
 	}
  console.log(connections);
 });
-
+  
 
 server.listen(13378, "127.0.0.1");
