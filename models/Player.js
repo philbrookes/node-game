@@ -3,6 +3,7 @@
 var Player = function(socketConnection){
       
    this.connection = socketConnection;
+   this.username = undefined;
    var that = this;
    var self = {
        setUserName:function(name){
@@ -11,6 +12,10 @@ var Player = function(socketConnection){
        ,
        getConnection:function(){
            return that.connection;
+       }
+       ,
+       getUsername:function(){
+           return that.username;
        }
        
    };
