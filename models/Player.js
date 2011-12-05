@@ -1,12 +1,10 @@
-
-
 var Player = function(socketConnection){
       
    this.connection = socketConnection;
    this.username = undefined;
    var that = this;
    var self = {
-       setUserName:function(name){
+       setUsername:function(name){
            that.username = name;
        }
        ,

@@ -22,12 +22,15 @@ var server = net.createServer(function (socket) {
     //handling this new connections disconnection
     socket.on('end',function(){
         console.log("the connections ID: "+ this._connid + " has disconnected!");
+        //remove player from players array
         delete players[this._connid];
     });
 
     //handling incoming data from this connection
     socket.on('data',function(data){
-        var command = Commands.CommandFactory.createCommand(this._connid, data);
+        //create a command to handle the incoming instruction
+        var command = Commands.CommandFactory.createCommand(this._connid, data, players);
+        //and process it
         command.process();
     });
 });

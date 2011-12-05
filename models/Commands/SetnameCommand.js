@@ -1,22 +1,28 @@
-
-
-var SetnameCommand = function(playerId, argument){
-    var playerId = playerId;
-    var argument = argument;
+var SetnameCommand = function(playerId, argument, players){
+    this.players = players;
+    this.playerId = playerId;
+    this.argument = argument;
     var that = this;
     var self = {
+        //process the command
         process:function(){
-            var oldName = players[that.playerId].getUsername();
-            players[that.playerId].setUsername(argument);
-            players[that.playerId]
-                .getConnection()
-                .write("You changed your name from: "+oldName+" to: "+players[that.playerId].getUsername());
+            //store the oldname
+            var oldName = that.players[that.playerId].getUsername();
+            //set the new name
+            that.players[that.playerId]
+                .setUsername(argument);
+                
+            //tell player it succeeded
+            that.players[that.playerId]
+                .getConnection() 
+                .write("You changed your name from: "+oldName+" to: "+that.players[that.playerId].getUsername());
                     
-            for(connId in players){
+            //tell other players that this players name has changed
+            for(connId in that.players){
                 if(connId != that.playerId){
-                    players[connId]
-                        .getConnection()
-                        .write(players[that.playerId].getUsername()+" changed username from: "+ oldName +" to: "+players[that.playerId].getUsername());
+                    that.players[connId]
+                        .getConnection() 
+                        .write(that.players[that.playerId].getUsername()+" changed username from: "+ oldName +" to: "+that.players[that.playerId].getUsername());
                 }
             }
         }
