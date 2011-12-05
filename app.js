@@ -9,7 +9,7 @@ var _id = 0;
 
 var models = require("./models");
 var Commands = require("./models/Commands");
-
+console.log(Commands);
 var server = net.createServer(function (socket) {
 
     socket._connid = _id;

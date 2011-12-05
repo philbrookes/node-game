@@ -1,8 +1,9 @@
 
-
+var SayCommand = require("./SayCommand");
 var CommandFactory = function(){};
 
 CommandFactory.prototype.createCommand = function(playerId, command){
+    console.log("called create command");
     instruction = command.substr(0, command.indexOf(" "));
     argument = command.substr(command.indexOf(" "));
     switch(instruction){
@@ -15,7 +16,7 @@ CommandFactory.prototype.createCommand = function(playerId, command){
         default:
             return new WhatCommand(playerId, argument);
     }
-}
+};
 
 
-module.exports = CommandFactory;
+module.exports = new CommandFactory();
