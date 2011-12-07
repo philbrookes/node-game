@@ -1,4 +1,4 @@
-var SetnameCommand = function(playerId, argument, players){
+var SetnameCommand = function(playerId, argument, players, callback){
     this.players = players;
     this.playerId = playerId;
     this.argument = argument;
