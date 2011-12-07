@@ -35,7 +35,7 @@ var server = net.createServer(function (socket) {
     });
 });
   
-  //testing notifications
+  //testing push notification
   
 //set up the socket
 server.listen(13378, "127.0.0.1");
