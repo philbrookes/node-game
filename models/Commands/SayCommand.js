@@ -1,4 +1,4 @@
-var SayCommand = function(playerId, argument, players){
+var SayCommand = function(playerId, argument, players,callback){
     this.players = players;
     this.playerId = playerId;
     this.argument = argument;
