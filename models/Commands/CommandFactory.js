@@ -5,7 +5,7 @@ CommandFactory.prototype.createCommand = function(playerId, command, players, ca
     //get first word of data and store it as the instruction
     instruction = command.substr(0, command.indexOf(" "));
     //get everything after first space and store it as the argument
-    argument = command.substr(command.indexOf(" "));
+    argument = (command.substr(command.indexOf(" "))== -1)?command:command.substr(command.indexOf(" "));
     console.log("creating command for "+instruction+" player: "+playerId+" argument: "+argument);
     try{
     var command = require("./"+instruction+"Command");
