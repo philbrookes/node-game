@@ -8,7 +8,7 @@ var WhatCommand = function(plyrId, arg, plyrs){
             //tell player they sent an instruction that we didnt understand
             that.players[that.playerId]
                 .getConnection()
-                .write("Sorry, I didn't understand you, available commands are: 'say' and 'setname'");
+                .write("Sorry, I didn't understand you, available commands are: 'setname', 'say' and 'who'");
         }
     };
 
