@@ -6,9 +6,9 @@ var CommandFactory = function(){};
 //static function
 CommandFactory.prototype.createCommand = function(playerId, command, players){
     //get first word of data and store it as the instruction
-    instruction = command.substr(0, command.indexOf(" "));
+    instruction = command.substr(0, command.indexOf(" ")).trim();
     //get everything after first space and store it as the argument
-    argument = command.substr(command.indexOf(" "));
+    argument = command.substr(command.indexOf(" ")).trim();
     console.log("creating command for "+instruction+" player: "+playerId+" argument: "+argument);
     switch(instruction){
         case "say": //run the say command
