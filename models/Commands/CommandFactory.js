@@ -6,7 +6,7 @@ CommandFactory.prototype.createCommand = function(playerId, command, players, ca
     instructions = command.trim().split(" ");
  	    //get everything after first space and store it as the argument
     instruction = instructions[0];        
-    argument = (instructions.length > 1)?instructions.splice(0).join(" "):"";
+    argument = (instructions.length > 1)?instructions.splice(1).join(" "):"";
     console.log("creating command for "+instruction+" player: "+playerId+" argument: "+argument);
     try{
     var command = require("./"+instruction+"Command");
